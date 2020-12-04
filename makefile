@@ -4,11 +4,11 @@ OPTIMIZATION = -O3
 STD = -std=c++17
 FLAGS = $(WARNINGS) $(OPTIMIZATION) $(STD)
 
-TARGETS = $(patsubst %.cc,bin/%,$(wildcard *.cc))
+TARGETS = $(patsubst src/%.cc,bin/%,$(wildcard src/*.cc))
 
 all: bin $(TARGETS)
 
-bin/%: %.cc 
+bin/%: src/%.cc 
 	$(CC) $(FLAGS) -o $@ $< 
 
 bin:
