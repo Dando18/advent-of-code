@@ -1,7 +1,6 @@
-CC = g++
-WARNINGS = -Wall -pedantic -Werror
+CC = g++-10
 OPTIMIZATION = -O3
-STD = -std=c++17
+STD = -std=c++20
 FLAGS = $(WARNINGS) $(OPTIMIZATION) $(STD)
 
 TARGETS = $(patsubst src/%.cc,bin/%,$(wildcard src/*.cc))
