@@ -40,6 +40,7 @@ int main(int argc, char **argv) {
     size_t totalTreesPart1 = countTotalTreesOnPath(grid, 0, 0, 3, 1);
     printf("Total Trees: %lu\n", totalTreesPart1);
 
+    /* lol this is kinda ugly but C++ do be like that sometimes */
     auto possibleSteps = {std::make_pair<size_t, size_t>(1, 1),
                           std::make_pair<size_t, size_t>(3, 1),
                           std::make_pair<size_t, size_t>(5, 1),
