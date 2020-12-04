@@ -26,7 +26,7 @@ size_t countTotalTreesOnPath(std::vector<std::string> const& grid, size_t startC
     return totalTrees;
 }
 
-int main(int argc, char **argv) {
+int main() {
 
     std::ifstream inFile("./inputs/dec3.txt");
     std::vector<std::string> grid;

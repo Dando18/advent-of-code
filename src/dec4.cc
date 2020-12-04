@@ -10,7 +10,7 @@ inline bool isNumeric(std::string const& s);
 inline bool valueCheck(std::string const& field, std::string const& value);
 
 
-int main(int argc, char **argv) {
+int main() {
 
     std::ifstream inFile("./inputs/dec4.txt");
 

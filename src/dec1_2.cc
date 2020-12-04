@@ -4,7 +4,7 @@
 
 constexpr int TARGET = 2020;
 
-int main(int argc, char **argv) {
+int main() {
 
     std::vector<int> values;
     std::ifstream input("inputs/dec1_1.txt");

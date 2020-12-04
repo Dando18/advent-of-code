@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <string>
 
-int main(int argc, char **argv) {
+int main() {
 
     std::ifstream inFile("./inputs/dec2.txt");
 
