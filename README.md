@@ -10,7 +10,7 @@ See each day here:
 | 2 | Password Philosophy | [Link](https://adventofcode.com/2020/day/2) | [Link](src/dec2.cc) |
 | 3 | Toboggan Trajectory | [Link](https://adventofcode.com/2020/day/3) | [Link](src/dec3.cc) |
 | 4 | Passport Processing | [Link](https://adventofcode.com/2020/day/4) | [Link](src/dec4.cc) |
-| 5 |  |  |  |
+| 5 | Binary Boarding | [Link](https://adventofcode.com/2020/day/5) | [Link](src/dec5.cc) |
 | 6 |  |  |  |
 | 7 |  |  |  |
 | 8 |  |  |  |
