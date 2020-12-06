@@ -11,7 +11,7 @@ See each day here:
 | 3 | Toboggan Trajectory | [Link](https://adventofcode.com/2020/day/3) | [Link](src/dec3.cc) |
 | 4 | Passport Processing | [Link](https://adventofcode.com/2020/day/4) | [Link](src/dec4.cc) |
 | 5 | Binary Boarding | [Link](https://adventofcode.com/2020/day/5) | [Link](src/dec5.cc) |
-| 6 |  |  |  |
+| 6 | Custom Customs | [Link](https://adventofcode.com/2020/day/6) | [Link](src/dec6.cc) |
 | 7 |  |  |  |
 | 8 |  |  |  |
 | 9 |  |  |  |
