@@ -15,7 +15,7 @@ See each day here:
 | 7 | Handy Haversacks | [Link](https://adventofcode.com/2020/day/7) | [Link](src/dec7.cc) |
 | 8 | Handhelt Halting | [Link](https://adventofcode.com/2020/day/8) | [Link](src/dec8.cc) |
 | 9 | Encoding Error | [Link](https://adventofcode.com/2020/day/9) | [Link](src/dec9.cc) |
-| 10 |  |  |  |
+| 10 | Adapter Array | [Link](https://adventofcode.com/2020/day/10) | [Link](src/dec10.cc) |
 | 11 |  |  |  |
 | 12 |  |  |  |
 | 13 |  |  |  |
