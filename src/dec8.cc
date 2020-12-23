@@ -17,7 +17,7 @@ struct Instruction {
 Instruction parseLine(std::string const& s) {
     std::string instr = s.substr(0, s.find(" "));
     std::string valueStr = s.substr(s.find(" ")+1);
-    int value = std::stod(valueStr);
+    int value = std::stoi(valueStr);
 
     InstructionType t;
     if (instr == "nop") t = NOP;

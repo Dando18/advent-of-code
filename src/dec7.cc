@@ -53,7 +53,7 @@ std::tuple<std::string, std::map<std::string, int>> parseLine(std::string const&
 
         // token is of the form -- "integer color bag(s)"
         std::string countStr = token.substr(0, token.find(" "));
-        int count = std::stod(countStr);
+        int count = std::stoi(countStr);
 
         std::string subToken = token.substr(token.find(" ")+1);
         std::string color = subToken.substr(0, subToken.find(" bag"));
@@ -63,7 +63,7 @@ std::tuple<std::string, std::map<std::string, int>> parseLine(std::string const&
     token = endList;
     std::string countStr = token.substr(0, token.find(" "));
     if (countStr != "no") {
-        int count = std::stod(countStr);
+        int count = std::stoi(countStr);
 
         std::string subToken = token.substr(token.find(" ")+1);
         std::string color = subToken.substr(0, subToken.find(" bag"));
