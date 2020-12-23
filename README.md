@@ -13,8 +13,8 @@ See each day here:
 | 5 | Binary Boarding | [Link](https://adventofcode.com/2020/day/5) | [Link](src/dec5.cc) |
 | 6 | Custom Customs | [Link](https://adventofcode.com/2020/day/6) | [Link](src/dec6.cc) |
 | 7 | Handy Haversacks | [Link](https://adventofcode.com/2020/day/7) | [Link](src/dec7.cc) |
-| 8 | Handhelt Halting | [Link](https://adventofcode.com/2020/day/8) | [Link](src/dec6.cc) |
-| 9 | Encoding Error | [Link](https://adventofcode.com/2020/day/9) | [Link](src/dec6.cc) |
+| 8 | Handhelt Halting | [Link](https://adventofcode.com/2020/day/8) | [Link](src/dec8.cc) |
+| 9 | Encoding Error | [Link](https://adventofcode.com/2020/day/9) | [Link](src/dec9.cc) |
 | 10 |  |  |  |
 | 11 |  |  |  |
 | 12 |  |  |  |
