@@ -16,18 +16,18 @@ See each day here:
 | 8 | Handhelt Halting | [Link](https://adventofcode.com/2020/day/8) | [Link](src/dec8.cc) |
 | 9 | Encoding Error | [Link](https://adventofcode.com/2020/day/9) | [Link](src/dec9.cc) |
 | 10 | Adapter Array | [Link](https://adventofcode.com/2020/day/10) | [Link](src/dec10.cc) |
-| 11 |  |  |  |
-| 12 |  |  |  |
-| 13 |  |  |  |
-| 14 |  |  |  |
-| 15 |  |  |  |
-| 16 |  |  |  |
-| 17 |  |  |  |
-| 18 |  |  |  |
-| 19 |  |  |  |
-| 20 |  |  |  |
-| 21 |  |  |  |
-| 22 |  |  |  |
-| 23 |  |  |  |
-| 24 |  |  |  |
-| 25 |  |  |  |
+| 11 | Seating System | [Link](https://adventofcode.com/2020/day/11) | [Link](src/dec11.cc) |
+| 12 | Rain Risk | [Link](https://adventofcode.com/2020/day/12) | [Link](src/dec12.cc) |
+| 13 | Shuttle Search | [Link](https://adventofcode.com/2020/day/13) | [Link](src/dec13.cc) |
+| 14 | Docking Data | [Link](https://adventofcode.com/2020/day/14) | [Link](src/dec14.cc) |
+| 15 | Rambunctious Recitation | [Link](https://adventofcode.com/2020/day/15) | [Link](src/dec15.cc) |
+| 16 | Ticket Translation | [Link](https://adventofcode.com/2020/day/16) | [Link](src/dec16.cc) |
+| 17 | Conway Cubes | [Link](https://adventofcode.com/2020/day/17) | [Link](src/dec17.cc) |
+| 18 | Operation Order | [Link](https://adventofcode.com/2020/day/18) | [Link](src/dec18.cc) |
+| 19 | Monster Messages | [Link](https://adventofcode.com/2020/day/19) | [Link](src/dec19.cc) |
+| 20 | Jurassic Jigsaw | [Link](https://adventofcode.com/2020/day/20) | [Link](src/dec20.cc) |
+| 21 | Allergen Assignment | [Link](https://adventofcode.com/2020/day/21) | [Link](src/dec21.cc) |
+| 22 | Crab Combat | [Link](https://adventofcode.com/2020/day/22) | [Link](src/dec22.cc) |
+| 23 | Crab Cups | [Link](https://adventofcode.com/2020/day/23) | [Link](src/dec23.cc) |
+| 24 | Lobby Layout | [Link](https://adventofcode.com/2020/day/24) | [Link](src/dec24.cc) |
+| 25 |  | [Link](https://adventofcode.com/2020/day/25) | [Link](src/dec25.cc) |
