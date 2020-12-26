@@ -30,4 +30,4 @@ See each day here:
 | 22 | Crab Combat | [Link](https://adventofcode.com/2020/day/22) | [Link](src/dec22.cc) |
 | 23 | Crab Cups | [Link](https://adventofcode.com/2020/day/23) | [Link](src/dec23.cc) |
 | 24 | Lobby Layout | [Link](https://adventofcode.com/2020/day/24) | [Link](src/dec24.cc) |
-| 25 |  | [Link](https://adventofcode.com/2020/day/25) | [Link](src/dec25.cc) |
+| 25 | Combo Breaker | [Link](https://adventofcode.com/2020/day/25) | [Link](src/dec25.cc) |
