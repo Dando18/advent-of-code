@@ -1,5 +1,5 @@
 /**
- * @file dec2.cc
+ * @file dec02.cc
  * @author Daniel Nichols
  * @date December 2022
  * @brief AOC 2022 Day 2 https://adventofcode.com/2022/day/2
@@ -13,7 +13,7 @@
 // local includes
 #include "utilities.hpp"
 
-constexpr auto INPUT_FILE_PATH = "/home/daniel/dev/personal/advent-of-code/2022/inputs/dec2.txt";
+constexpr auto INPUT_FILE_PATH = "/home/daniel/dev/personal/advent-of-code/2022/inputs/dec02.txt";
 
 enum MoveType {
     ROCK,

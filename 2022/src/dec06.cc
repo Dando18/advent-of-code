@@ -1,5 +1,5 @@
 /**
- * @file dec6.cc
+ * @file dec06.cc
  * @author Daniel Nichols
  * @date December 2022
  * @brief AOC 2022 Day 6 https://adventofcode.com/2022/day/6
@@ -16,7 +16,7 @@
 // local includes
 #include "utilities.hpp"
 
-constexpr auto INPUT_FILE_PATH = "/home/daniel/dev/personal/advent-of-code/2022/inputs/dec6.txt";
+constexpr auto INPUT_FILE_PATH = "/home/daniel/dev/personal/advent-of-code/2022/inputs/dec06.txt";
 
 uint32_t findMarker(std::string const& buffer, const uint32_t markerLength) {
     std::deque<char> marker(std::begin(buffer), std::next(std::begin(buffer), markerLength));

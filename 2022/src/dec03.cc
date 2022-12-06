@@ -1,5 +1,5 @@
 /**
- * @file dec3.cc
+ * @file dec03.cc
  * @author Daniel Nichols
  * @date December 2022
  * @brief AOC 2022 Day 3 https://adventofcode.com/2022/day/3
@@ -13,7 +13,7 @@
 // local includes
 #include "utilities.hpp"
 
-constexpr auto INPUT_FILE_PATH = "/home/daniel/dev/personal/advent-of-code/2022/inputs/dec3.txt";
+constexpr auto INPUT_FILE_PATH = "/home/daniel/dev/personal/advent-of-code/2022/inputs/dec03.txt";
 
 
 /*char getSharedItem(std::string const& a, std::string const& b) {

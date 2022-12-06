@@ -1,5 +1,5 @@
 /**
- * @file dec4.cc
+ * @file dec04.cc
  * @author Daniel Nichols
  * @date December 2022
  * @brief AOC 2022 Day 4 https://adventofcode.com/2022/day/4
@@ -13,7 +13,7 @@
 // local includes
 #include "utilities.hpp"
 
-constexpr auto INPUT_FILE_PATH = "/home/daniel/dev/personal/advent-of-code/2022/inputs/dec4.txt";
+constexpr auto INPUT_FILE_PATH = "/home/daniel/dev/personal/advent-of-code/2022/inputs/dec04.txt";
 
 struct Range {
     int64_t min, max;

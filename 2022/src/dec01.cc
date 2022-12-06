@@ -1,5 +1,5 @@
 /**
- * @file dec1.cc
+ * @file dec01.cc
  * @author Daniel Nichols
  * @date December 2022
  * @brief AOC 2022 Day 1 https://adventofcode.com/2022/day/1
@@ -13,7 +13,7 @@
 // local includes
 #include "utilities.hpp"
 
-constexpr auto INPUT_FILE_PATH = "/home/daniel/dev/personal/advent-of-code/2022/inputs/dec1.txt";
+constexpr auto INPUT_FILE_PATH = "/home/daniel/dev/personal/advent-of-code/2022/inputs/dec01.txt";
 
 
 int main() {

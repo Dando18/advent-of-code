@@ -6,15 +6,15 @@ See each day here:
 
 | Day | Problem Name | Problem Description | Code |
 | --- | ------------ | ------------------- | ---- |
-| 1 | Report Repair | [Link](https://adventofcode.com/2020/day/1) | [Link](src/dec1_1.cc) [Link](src/dec1_2.cc) |
-| 2 | Password Philosophy | [Link](https://adventofcode.com/2020/day/2) | [Link](src/dec2.cc) |
-| 3 | Toboggan Trajectory | [Link](https://adventofcode.com/2020/day/3) | [Link](src/dec3.cc) |
-| 4 | Passport Processing | [Link](https://adventofcode.com/2020/day/4) | [Link](src/dec4.cc) |
-| 5 | Binary Boarding | [Link](https://adventofcode.com/2020/day/5) | [Link](src/dec5.cc) |
-| 6 | Custom Customs | [Link](https://adventofcode.com/2020/day/6) | [Link](src/dec6.cc) |
-| 7 | Handy Haversacks | [Link](https://adventofcode.com/2020/day/7) | [Link](src/dec7.cc) |
-| 8 | Handhelt Halting | [Link](https://adventofcode.com/2020/day/8) | [Link](src/dec8.cc) |
-| 9 | Encoding Error | [Link](https://adventofcode.com/2020/day/9) | [Link](src/dec9.cc) |
+| 1 | Report Repair | [Link](https://adventofcode.com/2020/day/1) | [Link](src/dec01_1.cc) [Link](src/dec01_2.cc) |
+| 2 | Password Philosophy | [Link](https://adventofcode.com/2020/day/2) | [Link](src/dec02.cc) |
+| 3 | Toboggan Trajectory | [Link](https://adventofcode.com/2020/day/3) | [Link](src/dec03.cc) |
+| 4 | Passport Processing | [Link](https://adventofcode.com/2020/day/4) | [Link](src/dec04.cc) |
+| 5 | Binary Boarding | [Link](https://adventofcode.com/2020/day/5) | [Link](src/dec05.cc) |
+| 6 | Custom Customs | [Link](https://adventofcode.com/2020/day/6) | [Link](src/dec06.cc) |
+| 7 | Handy Haversacks | [Link](https://adventofcode.com/2020/day/7) | [Link](src/dec07.cc) |
+| 8 | Handhelt Halting | [Link](https://adventofcode.com/2020/day/8) | [Link](src/dec08.cc) |
+| 9 | Encoding Error | [Link](https://adventofcode.com/2020/day/9) | [Link](src/dec09.cc) |
 | 10 | Adapter Array | [Link](https://adventofcode.com/2020/day/10) | [Link](src/dec10.cc) |
 | 11 | Seating System | [Link](https://adventofcode.com/2020/day/11) | [Link](src/dec11.cc) |
 | 12 | Rain Risk | [Link](https://adventofcode.com/2020/day/12) | [Link](src/dec12.cc) |

@@ -1,5 +1,5 @@
 /**
- * @file dec5.cc
+ * @file dec05.cc
  * @author Daniel Nichols
  * @date December 2022
  * @brief AOC 2022 Day 5 https://adventofcode.com/2022/day/5
@@ -15,7 +15,7 @@
 // local includes
 #include "utilities.hpp"
 
-constexpr auto INPUT_FILE_PATH = "/home/daniel/dev/personal/advent-of-code/2022/inputs/dec5.txt";
+constexpr auto INPUT_FILE_PATH = "/home/daniel/dev/personal/advent-of-code/2022/inputs/dec05.txt";
 
 typedef char Crate;
 struct Move {
