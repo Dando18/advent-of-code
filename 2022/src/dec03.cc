@@ -16,13 +16,12 @@
 constexpr auto INPUT_FILE_PATH = "/home/daniel/dev/personal/advent-of-code/2022/inputs/dec03.txt";
 
 
-/*char getSharedItem(std::string const& a, std::string const& b) {
+char getSharedItem(std::string const& a, std::string const& b) {
     auto it = std::find_if(std::begin(a), std::end(a), [&b](auto const& c) {
         return b.find(c) != std::string::npos;
     });
-    
     return *it;
-}*/
+}
 
 char getSharedItem(std::vector<std::string> strs) {
     auto first = *std::begin(strs);
