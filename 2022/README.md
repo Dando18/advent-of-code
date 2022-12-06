@@ -1,6 +1,6 @@
 # Advent of Code 2022
 
-My solutions to [Advent of Code 2022](https://adventofcode.com/) in C++. 
+My solutions to [Advent of Code 2022](https://adventofcode.com/2022) in C++. 
 
 See each day here:
 
