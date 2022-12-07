@@ -12,7 +12,7 @@ See each day here:
 | 4 | Camp Cleanup | [Link](https://adventofcode.com/2022/day/4) | [Link](src/dec04.cc) |
 | 5 | Supply Stacks | [Link](https://adventofcode.com/2022/day/5) | [Link](src/dec05.cc) |
 | 6 | Tuning Trouble | [Link](https://adventofcode.com/2022/day/6) | [Link](src/dec06.cc) |
-| 7 |  | [Link](https://adventofcode.com/2022/day/7) | [Link](src/dec07.cc) |
+| 7 | No Space Left On Device | [Link](https://adventofcode.com/2022/day/7) | [Link](src/dec07.cc) |
 | 8 |  | [Link](https://adventofcode.com/2022/day/8) | [Link](src/dec08.cc) |
 | 9 |  | [Link](https://adventofcode.com/2022/day/9) | [Link](src/dec09.cc) |
 | 10 |  | [Link](https://adventofcode.com/2022/day/10) | [Link](src/dec10.cc) |
