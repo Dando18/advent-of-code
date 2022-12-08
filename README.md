@@ -16,7 +16,7 @@ Years:
 | 5 | Supply Stacks | [Link](https://adventofcode.com/2022/day/5) | [Link](2022/src/dec05.cc) |
 | 6 | Tuning Trouble | [Link](https://adventofcode.com/2022/day/6) | [Link](2022/src/dec06.cc) |
 | 7 | No Space Left On Device | [Link](https://adventofcode.com/2022/day/7) | [Link](2022/src/dec07.cc) |
-| 8 |  | [Link](https://adventofcode.com/2022/day/8) | [Link](2022/src/dec08.cc) |
+| 8 | Treetop Tree House | [Link](https://adventofcode.com/2022/day/8) | [Link](2022/src/dec08.cc) |
 | 9 |  | [Link](https://adventofcode.com/2022/day/9) | [Link](2022/src/dec09.cc) |
 | 10 |  | [Link](https://adventofcode.com/2022/day/10) | [Link](2022/src/dec10.cc) |
 | 11 |  | [Link](https://adventofcode.com/2022/day/11) | [Link](2022/src/dec11.cc) |
