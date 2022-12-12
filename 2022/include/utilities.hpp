@@ -76,4 +76,22 @@ private:
 };
 
 
+
+
+template <typename DType>
+class Point2D {
+    DType x, y;
+
+    bool operator==(Point2D const& p) const noexcept {
+        if constexpr (std::is_floating_point_v<DType>) {
+            return (std::abs(this->x - p.x) <= std::numeric_limits<DType>::epsilon())
+                && (std::abs(this->y - p.y) <= std::numeric_limits<DType>::epsilon());
+        } else {
+            return (this->x == p.x) && (this->y == p.y);
+        }
+    }
+};
+
+
+
 } // end namespace util

@@ -13,11 +13,11 @@ See each day here:
 | 5 | Supply Stacks | [Link](https://adventofcode.com/2022/day/5) | [Link](src/dec05.cc) |
 | 6 | Tuning Trouble | [Link](https://adventofcode.com/2022/day/6) | [Link](src/dec06.cc) |
 | 7 | No Space Left On Device | [Link](https://adventofcode.com/2022/day/7) | [Link](src/dec07.cc) |
-| 8 |  | [Link](https://adventofcode.com/2022/day/8) | [Link](src/dec08.cc) |
-| 9 |  | [Link](https://adventofcode.com/2022/day/9) | [Link](src/dec09.cc) |
-| 10 |  | [Link](https://adventofcode.com/2022/day/10) | [Link](src/dec10.cc) |
-| 11 |  | [Link](https://adventofcode.com/2022/day/11) | [Link](src/dec11.cc) |
-| 12 |  | [Link](https://adventofcode.com/2022/day/12) | [Link](src/dec12.cc) |
+| 8 | Treetop Tree House | [Link](https://adventofcode.com/2022/day/8) | [Link](src/dec08.cc) |
+| 9 | Rope Bridge | [Link](https://adventofcode.com/2022/day/9) | [Link](src/dec09.cc) |
+| 10 | Cathode-Ray Tube | [Link](https://adventofcode.com/2022/day/10) | [Link](src/dec10.cc) |
+| 11 | Monkey in the Middle | [Link](https://adventofcode.com/2022/day/11) | [Link](src/dec11.cc) |
+| 12 | Hill Climbing Algorithm | [Link](https://adventofcode.com/2022/day/12) | [Link](src/dec12.cc) |
 | 13 |  | [Link](https://adventofcode.com/2022/day/13) | [Link](src/dec13.cc) |
 | 14 |  | [Link](https://adventofcode.com/2022/day/14) | [Link](src/dec14.cc) |
 | 15 |  | [Link](https://adventofcode.com/2022/day/15) | [Link](src/dec15.cc) |
