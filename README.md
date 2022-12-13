@@ -21,7 +21,7 @@ Years:
 | 10 | Cathode-Ray Tube | [Link](https://adventofcode.com/2022/day/10) | [Link](2022/src/dec10.cc) |
 | 11 | Monkey in the Middle | [Link](https://adventofcode.com/2022/day/11) | [Link](2022/src/dec11.cc) |
 | 12 | Hill Climbing Algorithm | [Link](https://adventofcode.com/2022/day/12) | [Link](2022/src/dec12.cc) |
-| 13 |  | [Link](https://adventofcode.com/2022/day/13) | [Link](2022/src/dec13.cc) |
+| 13 | Distress Signal | [Link](https://adventofcode.com/2022/day/13) | [Link](2022/src/dec13.cc) |
 | 14 |  | [Link](https://adventofcode.com/2022/day/14) | [Link](2022/src/dec14.cc) |
 | 15 |  | [Link](https://adventofcode.com/2022/day/15) | [Link](2022/src/dec15.cc) |
 | 16 |  | [Link](https://adventofcode.com/2022/day/16) | [Link](2022/src/dec16.cc) |
