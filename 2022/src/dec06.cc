@@ -3,7 +3,7 @@
  * @author Daniel Nichols
  * @date December 2022
  * @brief AOC 2022 Day 6 https://adventofcode.com/2022/day/6
- * 
+ *
  */
 // stl includes
 #include <deque>
@@ -18,7 +18,7 @@
 
 constexpr auto INPUT_FILE_PATH = "/home/daniel/dev/personal/advent-of-code/2022/inputs/dec06.txt";
 
-uint32_t findMarker(std::string const& buffer, const uint32_t markerLength) {
+uint32_t findMarker(std::string const &buffer, const uint32_t markerLength) {
     std::deque<char> marker(std::begin(buffer), std::next(std::begin(buffer), markerLength));
 
     if (!util::hasDuplicates(std::begin(marker), std::end(marker))) {
@@ -36,7 +36,6 @@ uint32_t findMarker(std::string const& buffer, const uint32_t markerLength) {
 
     return buffer.size();
 }
-
 
 int main() {
 

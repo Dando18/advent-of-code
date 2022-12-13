@@ -3,7 +3,7 @@
  * @author Daniel Nichols
  * @date December 2022
  * @brief AOC 2022 Day 2 https://adventofcode.com/2022/day/2
- * 
+ *
  */
 // stl includes
 #include <iostream>
@@ -15,18 +15,13 @@
 
 constexpr auto INPUT_FILE_PATH = "/home/daniel/dev/personal/advent-of-code/2022/inputs/dec02.txt";
 
-enum MoveType {
-    ROCK,
-    PAPER,
-    SCISSORS
-};
+enum MoveType { ROCK, PAPER, SCISSORS };
 
 struct Round {
     MoveType opponentMove, playerMove;
 };
 
-
-int32_t getRoundScore(Round const& round) {
+int32_t getRoundScore(Round const &round) {
     int32_t score = (round.playerMove == ROCK) ? 1 : (round.playerMove == PAPER) ? 2 : 3;
 
     if (round.playerMove == round.opponentMove) {
@@ -44,36 +39,42 @@ int32_t getRoundScore(Round const& round) {
     return score;
 }
 
-
 int main() {
 
     auto lines = util::readLines(INPUT_FILE_PATH);
     std::vector<Round> rounds, roundsPart2;
 
-    for (auto const& line : lines) {
+    for (auto const &line : lines) {
         Round curRound, roundPart2;
         const char opponent = line[0];
         const char player = line[2];
 
-        if (opponent == 'A') curRound.opponentMove = ROCK;
-        else if (opponent == 'B') curRound.opponentMove = PAPER;
-        else if (opponent == 'C') curRound.opponentMove = SCISSORS;
+        if (opponent == 'A')
+            curRound.opponentMove = ROCK;
+        else if (opponent == 'B')
+            curRound.opponentMove = PAPER;
+        else if (opponent == 'C')
+            curRound.opponentMove = SCISSORS;
 
         roundPart2 = curRound;
 
         if (player == 'X') {
             curRound.playerMove = ROCK;
-            roundPart2.playerMove = (roundPart2.opponentMove == ROCK) ? SCISSORS : (roundPart2.opponentMove == PAPER) ? ROCK : PAPER;
+            roundPart2.playerMove = (roundPart2.opponentMove == ROCK)    ? SCISSORS
+                                    : (roundPart2.opponentMove == PAPER) ? ROCK
+                                                                         : PAPER;
         } else if (player == 'Y') {
             curRound.playerMove = PAPER;
             roundPart2.playerMove = roundPart2.opponentMove;
         } else if (player == 'Z') {
             curRound.playerMove = SCISSORS;
-            roundPart2.playerMove = (roundPart2.opponentMove == ROCK) ? PAPER : (roundPart2.opponentMove == PAPER) ? SCISSORS : ROCK;
+            roundPart2.playerMove = (roundPart2.opponentMove == ROCK)    ? PAPER
+                                    : (roundPart2.opponentMove == PAPER) ? SCISSORS
+                                                                         : ROCK;
         }
 
         rounds.push_back(curRound);
-        roundsPart2.push_back(roundPart2); 
+        roundsPart2.push_back(roundPart2);
     }
 
     // part 1 -- sum of normal scores

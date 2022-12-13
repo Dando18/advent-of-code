@@ -3,7 +3,7 @@
  * @author Daniel Nichols
  * @date December 2022
  * @brief AOC 2022 Day 12 https://adventofcode.com/2022/day/12
- * 
+ *
  */
 // stl includes
 #include <deque>
@@ -17,24 +17,21 @@
 constexpr auto INPUT_FILE_PATH = "/home/daniel/dev/personal/advent-of-code/2022/inputs/dec12.txt";
 
 typedef char Elevation;
-template<typename T>
-using Grid = std::vector<std::vector<T>>;
+template <typename T> using Grid = std::vector<std::vector<T>>;
 typedef std::pair<uint32_t, uint32_t> Vertex;
 
-std::vector<Vertex> getNeighbors(Vertex const& v, uint32_t rows, uint32_t cols) {
+std::vector<Vertex> getNeighbors(Vertex const &v, uint32_t rows, uint32_t cols) {
     std::vector<Vertex> neighbors;
-    if (v.first != 0) neighbors.push_back( {v.first-1, v.second} );
-    if (v.first != rows-1) neighbors.push_back( {v.first+1, v.second} );
-    if (v.second != 0) neighbors.push_back( {v.first, v.second-1} );
-    if (v.second != cols-1) neighbors.push_back( {v.first, v.second+1} );
+    if (v.first != 0) neighbors.push_back({v.first - 1, v.second});
+    if (v.first != rows - 1) neighbors.push_back({v.first + 1, v.second});
+    if (v.second != 0) neighbors.push_back({v.first, v.second - 1});
+    if (v.second != cols - 1) neighbors.push_back({v.first, v.second + 1});
     return neighbors;
 }
 
-bool canTravelTo(Elevation const& src, Elevation const& dst) {
-    return (src + 1) >= dst;
-}
+bool canTravelTo(Elevation const &src, Elevation const &dst) { return (src + 1) >= dst; }
 
-void bfs(Grid<Elevation> const& grid, Vertex src, Vertex dst, Grid<uint32_t> &distances) {
+void bfs(Grid<Elevation> const &grid, Vertex src, Vertex dst, Grid<uint32_t> &distances) {
     const uint32_t ROWS = grid.size(), COLS = grid.front().size();
 
     std::deque<Vertex> queue;
@@ -49,13 +46,13 @@ void bfs(Grid<Elevation> const& grid, Vertex src, Vertex dst, Grid<uint32_t> &di
         queue.pop_front();
         const auto curHeight = grid.at(v.first).at(v.second);
 
-        for (auto const& neighbor : getNeighbors(v, ROWS, COLS)) {
-            if (canTravelTo(curHeight, grid.at(neighbor.first).at(neighbor.second)) 
-                && !visited.at(neighbor.first).at(neighbor.second)) {
+        for (auto const &neighbor : getNeighbors(v, ROWS, COLS)) {
+            if (canTravelTo(curHeight, grid.at(neighbor.first).at(neighbor.second)) &&
+                !visited.at(neighbor.first).at(neighbor.second)) {
 
                 visited.at(neighbor.first).at(neighbor.second) = true;
                 distances.at(neighbor.first).at(neighbor.second) = distances.at(v.first).at(v.second) + 1;
-                queue.push_back( neighbor );
+                queue.push_back(neighbor);
 
                 if (neighbor == dst) {
                     queue.clear();
@@ -64,14 +61,13 @@ void bfs(Grid<Elevation> const& grid, Vertex src, Vertex dst, Grid<uint32_t> &di
             }
         }
     }
-
 }
 
 int main() {
 
     const auto lines = util::readLines(INPUT_FILE_PATH);
     Grid<Elevation> grid(lines.size(), std::vector<Elevation>(lines.front().size()));
-    Vertex src, dst; 
+    Vertex src, dst;
     for (size_t i = 0; i < grid.size(); i += 1) {
         for (size_t j = 0; j < grid.at(i).size(); j += 1) {
             const char c = lines.at(i).at(j);
@@ -89,8 +85,8 @@ int main() {
     }
 
     // part 1 -- find shortest path from S to E
-    Grid<uint32_t> distances(grid.size(), 
-        std::vector<uint32_t>(grid.front().size(), std::numeric_limits<uint32_t>::max()));
+    Grid<uint32_t> distances(grid.size(),
+                             std::vector<uint32_t>(grid.front().size(), std::numeric_limits<uint32_t>::max()));
     bfs(grid, src, dst, distances);
     std::cout << distances.at(dst.first).at(dst.second) << "\n";
 
@@ -111,5 +107,4 @@ int main() {
         }
     }
     std::cout << minDistance << "\n";
-
 }

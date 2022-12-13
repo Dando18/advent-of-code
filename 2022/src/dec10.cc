@@ -3,7 +3,7 @@
  * @author Daniel Nichols
  * @date December 2022
  * @brief AOC 2022 Day 10 https://adventofcode.com/2022/day/10
- * 
+ *
  */
 // stl includes
 #include <iostream>
@@ -14,7 +14,6 @@
 #include "utilities.hpp"
 
 constexpr auto INPUT_FILE_PATH = "/home/daniel/dev/personal/advent-of-code/2022/inputs/dec10.txt";
-
 
 void increment(uint32_t &cycleNum, int64_t curValue, int64_t &totalSignalStrength, std::ostream &crt) {
     cycleNum += 1;
@@ -41,7 +40,7 @@ int main() {
     int64_t value = 1, totalSignalStrength = 0;
     uint32_t cycleNum = 0;
     std::ostringstream crt;
-    for (auto const& line : lines) {
+    for (auto const &line : lines) {
         if (line == "noop") {
             increment(cycleNum, value, totalSignalStrength, crt);
         } else if (line.starts_with("addx")) {
