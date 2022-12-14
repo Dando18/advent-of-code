@@ -39,6 +39,21 @@ std::vector<std::string> split(std::string const& s, char const delim) {
     return parts;
 }
 
+std::vector<std::string> split(std::string const& s, std::string const& delim) {
+    std::vector<std::string> parts;
+
+    auto start = 0U;
+    auto end = s.find(delim);
+    while (end != std::string::npos) {
+        parts.push_back(s.substr(start, end - start));
+        start = end + delim.length();
+        end = s.find(delim, start);
+    }
+    parts.push_back(s.substr(start, end));
+
+    return parts;
+}
+
 template <typename Iterator>
 bool hasDuplicates(Iterator first, Iterator last) {
     std::unordered_set<std::iter_value_t<Iterator>> set(first, last);
@@ -80,6 +95,7 @@ private:
 
 template <typename DType>
 class Point2D {
+public:
     DType x, y;
 
     bool operator==(Point2D const& p) const noexcept {
@@ -90,7 +106,16 @@ class Point2D {
             return (this->x == p.x) && (this->y == p.y);
         }
     }
+
+    template <typename U>
+    friend std::ostream& operator<<(std::ostream& oss, Point2D<U> const& p);
 };
+
+template<typename DType_>
+std::ostream& operator<<(std::ostream& oss, Point2D<DType_> const& p) {
+    oss << '(' << p.x << ',' << p.y << ')';
+    return oss;
+}
 
 
 
