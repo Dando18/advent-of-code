@@ -1,0 +1,3 @@
+[submodule "tpl/gif-h"]
+	path = tpl/gif-h
+	url = https://github.com/charlietangora/gif-h

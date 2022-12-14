@@ -7,9 +7,14 @@
  */
 // stl includes
 #include <iostream>
+#include <unordered_map>
+#include <map>
 #include <optional>
 #include <string>
 #include <vector>
+
+// tpl includes
+#include "gif.h"
 
 // local includes
 #include "utilities.hpp"
@@ -19,11 +24,14 @@ constexpr auto INPUT_FILE_PATH = "/home/daniel/dev/personal/advent-of-code/2022/
 template <typename DType_> using Grid = std::vector<std::vector<DType_>>;
 typedef char Cell;
 typedef util::Point2D<uint32_t> Point;
+struct RGBA { uint8_t r, g, b, a; };
 
 constexpr Cell SAND_SYMBOL = 'o';
 constexpr Cell ROCK_SYMBOL = '#';
 constexpr Cell SOURCE_SYMBOL = '+';
 constexpr Cell EMPTY_SYMBOL = '.';
+const std::unordered_map<Cell, RGBA> colorMap {{SAND_SYMBOL, {204,204,0,255}}, {ROCK_SYMBOL, {0,0,0,255}}, 
+    {SOURCE_SYMBOL, {255,0,0,255}}, {EMPTY_SYMBOL, {255,255,255,255}}};
 
 void drawLine(Grid<Cell> &grid, Point const &start, Point const &end) {
     Point iter = start;
@@ -81,6 +89,22 @@ void printGrid(Grid<Cell> const &grid, std::ostream &oss, uint32_t minX = 494, u
     }
 }
 
+void writeFrame(Grid<Cell> const &grid, GifWriter &gif, std::vector<uint8_t> &buffer, int delay = 1) {
+
+    uint32_t iter = 0;
+    for (auto const& row : grid) {
+        for (auto const& c : row) {
+            const auto pixel = colorMap.at(c);
+            buffer.at(iter++) = pixel.r;
+            buffer.at(iter++) = pixel.g;
+            buffer.at(iter++) = pixel.b;
+            buffer.at(iter++) = pixel.a;
+        }
+    }
+
+    GifWriteFrame(&gif, buffer.data(), grid.front().size(), grid.size(), delay);
+}
+
 std::optional<Point> scanDown(Grid<Cell> const &grid, Point const &start) {
     auto row = start.y;
     while ((row < grid.size()) &&
@@ -113,27 +137,18 @@ std::optional<Point> dropSand(Grid<Cell> const &grid, Point source) {
     return dropPoint;
 }
 
-uint32_t countSand(Grid<Cell> grid, Point source) {
+uint32_t countSand(Grid<Cell> grid, Point source, std::optional<GifWriter> vis = std::nullopt) {
     uint32_t count = 0;
+
+    std::optional<std::vector<uint8_t>> visBuffer;
+    if (vis) visBuffer = std::vector<uint8_t>(grid.size()*grid.front().size()*4, 255);
 
     auto sand = dropSand(grid, source);
     while (sand && sand != source) {
         grid.at(sand->y).at(sand->x) = SAND_SYMBOL;
         count += 1;
 
-        sand = dropSand(grid, source);
-    }
-
-    return count;
-}
-
-uint32_t dropUntilSourcePlugged(Grid<Cell> grid, Point source) {
-    uint32_t count = 0;
-
-    auto sand = dropSand(grid, source);
-    while (sand) {
-        grid.at(sand->y).at(sand->x) = SAND_SYMBOL;
-        count += 1;
+        if (vis) writeFrame(grid, *vis, *visBuffer);
 
         sand = dropSand(grid, source);
     }
@@ -148,13 +163,19 @@ int main() {
     auto grid = parseInput(lines, SOURCE);
 
     // part 1 -- drop sand and see how long it is till things fall into abyss
-    uint32_t total = countSand(grid, SOURCE);
+    GifWriter part1Visualization;
+    GifBegin(&part1Visualization, "figs/dec14/part1.gif", grid.front().size(), grid.size(), 1);
+    uint32_t total = countSand(grid, SOURCE, part1Visualization);
+    GifEnd(&part1Visualization);
     std::cout << total << '\n';
 
     // part 2 -- drop sand until source is covered
     const uint32_t PAD = 250;
     std::for_each(std::begin(grid), std::end(grid), [](auto &r) { r.insert(r.end(), PAD, EMPTY_SYMBOL); });
     grid.push_back(std::vector<Cell>(grid.front().size(), ROCK_SYMBOL));
-    total = countSand(grid, SOURCE) + 1;
+    GifWriter part2Visualization;
+    GifBegin(&part2Visualization, "figs/dec14/part2.gif", grid.front().size(), grid.size(), 1);
+    total = countSand(grid, SOURCE, part2Visualization) + 1;
+    GifEnd(&part2Visualization);
     std::cout << total << '\n';
 }

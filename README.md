@@ -65,3 +65,27 @@ Years:
 | 23 | Crab Cups | [Link](https://adventofcode.com/2020/day/23) | [Link](2020/src/dec23.cc) |
 | 24 | Lobby Layout | [Link](https://adventofcode.com/2020/day/24) | [Link](2020/src/dec24.cc) |
 | 25 | Combo Breaker | [Link](https://adventofcode.com/2020/day/25) | [Link](2020/src/dec25.cc) |
+
+
+# Visualizations
+
+## 2022
+
+### Day 12
+__Part 1:__ Finding the shortest path from blue to green (with requirement that you can only step up +1 height
+at a time).
+
+![Dec 12 2022 Part 1](2022/figs/dec12/part1.gif)
+
+__Part 2:__ Find shortest path of all elevation 0 locations (with same requirements as above).
+
+![Dec 12 2022 Part 2](2022/figs/dec12/part2.gif)
+
+### Day 14
+__Part 1:__ Count how many grains of sand fall until one drops into infinity.
+
+![Dec 12 2022 Part 1](2022/figs/dec14/part1.gif)
+
+__Part 2:__ Count how many grains of sand fall until source is plugged.
+
+![Dec 12 2022 Part 2](2022/figs/dec14/part2.gif)

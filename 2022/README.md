@@ -31,3 +31,26 @@ See each day here:
 | 23 |  | [Link](https://adventofcode.com/2022/day/23) | [Link](src/dec23.cc) |
 | 24 |  | [Link](https://adventofcode.com/2022/day/24) | [Link](src/dec24.cc) |
 | 25 |  | [Link](https://adventofcode.com/2022/day/25) | [Link](src/dec25.cc) |
+
+
+## Visualizations
+
+
+### Day 12
+__Part 1:__ Finding the shortest path from blue to green (with requirement that you can only step up +1 height
+at a time).
+
+![Dec 12 2022 Part 1](figs/dec12/part1.gif)
+
+__Part 2:__ Find shortest path of all elevation 0 locations (with same requirements as above).
+
+![Dec 12 2022 Part 2](figs/dec12/part2.gif)
+
+### Day 14
+__Part 1:__ Count how many grains of sand fall until one drops into infinity.
+
+![Dec 12 2022 Part 1](figs/dec14/part1.gif)
+
+__Part 2:__ Count how many grains of sand fall until source is plugged.
+
+![Dec 12 2022 Part 2](figs/dec14/part2.gif)
