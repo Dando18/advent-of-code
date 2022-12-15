@@ -23,7 +23,7 @@ Years:
 | 12 | Hill Climbing Algorithm | [Link](https://adventofcode.com/2022/day/12) | [Link](2022/src/dec12.cc) |
 | 13 | Distress Signal | [Link](https://adventofcode.com/2022/day/13) | [Link](2022/src/dec13.cc) |
 | 14 | Regolith Reservoir | [Link](https://adventofcode.com/2022/day/14) | [Link](2022/src/dec14.cc) |
-| 15 |  | [Link](https://adventofcode.com/2022/day/15) | [Link](2022/src/dec15.cc) |
+| 15 | Beacon Exclusion Zone | [Link](https://adventofcode.com/2022/day/15) | [Link](2022/src/dec15.cc) |
 | 16 |  | [Link](https://adventofcode.com/2022/day/16) | [Link](2022/src/dec16.cc) |
 | 17 |  | [Link](https://adventofcode.com/2022/day/17) | [Link](2022/src/dec17.cc) |
 | 18 |  | [Link](https://adventofcode.com/2022/day/18) | [Link](2022/src/dec18.cc) |
