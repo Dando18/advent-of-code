@@ -7,16 +7,23 @@
  */
 // stl includes
 #include <array>
+#include <cassert>
 #include <iostream>
+#include <optional>
 #include <string>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
 
+// stl includes
+#include "gif.h"
+
 // local includes
 #include "utilities.hpp"
 
 constexpr auto INPUT_FILE_PATH = "/home/daniel/dev/personal/advent-of-code/2022/inputs/dec09.txt";
+constexpr bool VISUALIZATION = true;
+constexpr uint32_t FINAL_FRAME_REPEAT = 200;
 
 enum Direction { UP, DOWN, LEFT, RIGHT };
 std::unordered_map<char, Direction> char2Direction{{'U', UP}, {'D', DOWN}, {'L', LEFT}, {'R', RIGHT}};
@@ -93,6 +100,30 @@ void printGrid(std::ostream &oss, Position const &head, Position const &tail, in
     }
 }
 
+void setPoint(std::vector<uint8_t> &frame, Position const &p, std::pair<int64_t, int64_t> xRange,
+              std::pair<int64_t, int64_t> yRange, std::array<uint8_t, 3> const &color) {
+    const int64_t offset = (p.y - yRange.first) * (xRange.second - xRange.first + 1) + (p.x - xRange.first);
+    frame.at(offset * 4 + 0) = color.at(0);
+    frame.at(offset * 4 + 1) = color.at(1);
+    frame.at(offset * 4 + 2) = color.at(2);
+}
+
+template <typename PositionIterator>
+void drawFrame(GifWriter &vis, std::vector<uint8_t> &frame, std::pair<int64_t, int64_t> xRange,
+               std::pair<int64_t, int64_t> yRange, std::unordered_set<Position> const &visited, Position const &head,
+               PositionIterator const& tails) {
+
+    std::fill(std::begin(frame), std::end(frame), 0);
+
+    for (auto const &v : visited)
+        setPoint(frame, v, xRange, yRange, {0, 64, 0});
+    for (auto const &tail : tails)
+        setPoint(frame, tail, xRange, yRange, {0, 255, 0});
+    setPoint(frame, head, xRange, yRange, {255, 0, 0});
+
+    GifWriteFrame(&vis, frame.data(), (xRange.second - xRange.first + 1), (yRange.second - yRange.first + 1), 1);
+}
+
 int main() {
 
     const auto lines = util::readLines(INPUT_FILE_PATH);
@@ -104,7 +135,7 @@ int main() {
 
     // part 1 -- simulate movements and return number of unique spaces tail covered
     Position head{0, 0}, tail{0, 0};
-    std::unordered_set<Position> visited;
+    std::unordered_set<Position> visited, headPositions({head});
     visited.insert(tail);
 
     for (auto const &move : moves) {
@@ -112,6 +143,8 @@ int main() {
             moveHead(head, move.dir);
             updateTail(head, tail);
             visited.insert(tail);
+
+            headPositions.insert(head); // for visualization
         }
     }
     std::cout << visited.size() << "\n";
@@ -138,4 +171,60 @@ int main() {
         }
     }
     std::cout << visited.size() << "\n";
+
+    /* VISUALIZATIONS -- problem is solved sparsely, but dense info is needed for visualization. so repeat... */
+    if constexpr (VISUALIZATION) {
+        const auto [minX, maxX] = std::minmax_element(std::cbegin(headPositions), std::cend(headPositions),
+                                                      [](auto const &a, auto const &b) { return a.x < b.x; });
+        const auto [minY, maxY] = std::minmax_element(std::cbegin(headPositions), std::cend(headPositions),
+                                                      [](auto const &a, auto const &b) { return a.y < b.y; });
+
+        const auto xRange = std::pair<int64_t, int64_t>(minX->x, maxX->x);
+        const auto yRange = std::pair<int64_t, int64_t>(minY->y, maxY->y);
+        const uint32_t width = xRange.second - xRange.first + 1;
+        const uint32_t height = yRange.second - yRange.first + 1;
+
+        GifWriter vis;
+        std::vector<uint8_t> frame(width * height * 4, 0);
+        GifBegin(&vis, "figs/dec09/part1.gif", width, height, 1);
+
+        /* VIS PART 1 */
+        head = {0, 0}, tail = {0, 0};
+        visited.clear();
+        visited.insert(tail);
+        for (auto const &move : moves) {
+            for (uint32_t i = 0; i < move.amt; i += 1) {
+                moveHead(head, move.dir);
+                updateTail(head, tail);
+                visited.insert(tail);
+
+                drawFrame(vis, frame, xRange, yRange, visited, head, std::initializer_list<Position>{tail});
+            }
+        }
+        for (uint32_t i = 0; i < FINAL_FRAME_REPEAT; i += 1)
+            drawFrame(vis, frame, xRange, yRange, visited, head, std::initializer_list<Position>{tail});
+        GifEnd(&vis);
+
+        /* VIS PART 2*/
+        GifBegin(&vis, "figs/dec09/part2.gif", width, height, 1);
+        head = {0, 0};
+        std::fill(std::begin(tails), std::end(tails), Position{0,0});
+        visited.clear();
+        visited.insert(tails.back());
+        for (auto const &move : moves) {
+            for (uint32_t i = 0; i < move.amt; i += 1) {
+                moveHead(head, move.dir);
+                updateTail(head, tails.front());
+                for (size_t j = 1; j < tails.size(); j += 1) {
+                    updateTail(tails.at(j - 1), tails.at(j));
+                }
+                visited.insert(tails.back());
+
+                drawFrame(vis, frame, xRange, yRange, visited, head, tails);
+            }
+        }
+        for (uint32_t i = 0; i < FINAL_FRAME_REPEAT; i += 1)
+            drawFrame(vis, frame, xRange, yRange, visited, head, tails);
+        GifEnd(&vis);
+    }
 }

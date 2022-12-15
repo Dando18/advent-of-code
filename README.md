@@ -71,6 +71,16 @@ Years:
 
 ## 2022
 
+### Day 9
+__Part 1:__ The knot (green) swings behind the head of the rope (red). How many squares does the knot cover
+(light green) as the head moves?
+
+<p align="center"><img alt="Dec 9 2022 Part 1" src="2022/figs/dec09/part1.gif" /></p>
+
+__Part 2:__ Now there are 9 knots. How many squares does the last one cover?
+
+<p align="center"><img alt="Dec 9 2022 Part 2" src="2022/figs/dec09/part2.gif" /></p>
+
 ### Day 12
 __Part 1:__ Finding the shortest path from blue to green (with requirement that you can only step up +1 height
 at a time).
