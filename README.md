@@ -75,7 +75,7 @@ Years:
 __Part 1:__ Finding the shortest path from blue to green (with requirement that you can only step up +1 height
 at a time).
 
-![Dec 12 2022 Part 1](2022/figs/dec12/part1.gif)
+<img align="center" alt="Dec 12 2022 Part 1" src="2022/figs/dec12/part1.gif" />
 
 __Part 2:__ Find shortest path of all elevation 0 locations (with same requirements as above).
 
