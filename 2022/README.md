@@ -40,17 +40,17 @@ See each day here:
 __Part 1:__ Finding the shortest path from blue to green (with requirement that you can only step up +1 height
 at a time).
 
-<p align="center"><img alt="Dec 12 2022 Part 1" src="2022/figs/dec12/part1.gif" /></p>
+<p align="center"><img alt="Dec 12 2022 Part 1" src="figs/dec12/part1.gif" /></p>
 
 __Part 2:__ Find shortest path of all elevation 0 locations (with same requirements as above).
 
-<p align="center"><img alt="Dec 12 2022 Part 2" src="2022/figs/dec12/part2.gif" /></p>
+<p align="center"><img alt="Dec 12 2022 Part 2" src="figs/dec12/part2.gif" /></p>
 
 ### Day 14
 __Part 1:__ Count how many grains of sand fall until one drops into infinity.
 
-<p align="center"><img alt="Dec 14 2022 Part 1" src="2022/figs/dec14/part1.gif" /></p>
+<p align="center"><img alt="Dec 14 2022 Part 1" src="figs/dec14/part1.gif" /></p>
 
 __Part 2:__ Count how many grains of sand fall until source is plugged.
 
-<p align="center"><img alt="Dec 14 2022 Part 2" src="2022/figs/dec14/part2.gif" /></p>
+<p align="center"><img alt="Dec 14 2022 Part 2" src="figs/dec14/part2.gif" /></p>
