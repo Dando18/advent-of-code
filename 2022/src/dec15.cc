@@ -16,10 +16,6 @@
 
 constexpr auto INPUT_FILE_PATH = "/home/daniel/dev/personal/advent-of-code/2022/inputs/dec15.txt";
 
-template <typename T>
-using Row = std::vector<T>;
-template <typename T>
-using Grid = std::vector<Row<T>>;
 typedef util::Point2D<int64_t> Point;
 
 int64_t manhattan(Point const &a, Point const &b) { return std::abs(a.x - b.x) + std::abs(a.y - b.y); }
@@ -48,34 +44,6 @@ std::pair<Point, Sensor> parseSensor(std::string const &str) {
     return {pos, {pos, beacon}};
 }
 
-void markNonBeacons(Grid<char> &grid, Grid<bool> &visited, const int64_t maxDist,
-                    std::pair<int64_t, int64_t> const &xRange, std::pair<int64_t, int64_t> const &yRange,
-                    Point const &src, Point const &pos) {
-
-    if (manhattan(src, pos) > maxDist) return;
-    if (pos.x < xRange.first || pos.x > xRange.second || pos.y < yRange.first || pos.y > yRange.second) return;
-    if (visited.at(pos.y - yRange.first).at(pos.x - xRange.first)) return;
-
-    visited.at(pos.y - yRange.first).at(pos.x - xRange.first) = true;
-    char &curCell = grid.at(pos.y - yRange.first).at(pos.x - xRange.first);
-    if (curCell == '.') curCell = '#';
-
-    const std::array<Point, 8> offsets{{{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}}};
-    for (auto const &off : offsets)
-        markNonBeacons(grid, visited, maxDist, xRange, yRange, src, {pos.x + off.x, pos.y + off.y});
-}
-
-void printGrid(Grid<char> const &grid, std::ostream &oss, int64_t yStart = 0) {
-    int64_t rowCounter = yStart;
-    for (auto const &row : grid) {
-        oss << rowCounter++ << '\t';
-        for (auto const &c : row) {
-            oss << c;
-        }
-        oss << '\n';
-    }
-}
-
 int main() {
 
     const auto lines = util::readLines(INPUT_FILE_PATH);
@@ -94,21 +62,7 @@ int main() {
         yRange.second = std::max(std::max(yRange.second, pos.y + sensor.distanceToBeacon_), sensor.beacon_.y);
     }
 
-    const uint32_t width = xRange.second - xRange.first + 1;
-    const uint32_t height = yRange.second - yRange.first + 1;
-    std::cout << width << " x " << height << "\n";
-    // Grid<char> grid(height, Row<char>(width, '.'));
-    // Grid<bool> visited(height, Row<bool>(width));
-    // for (auto const &[pos, sensor] : sensors) {
-    //     grid.at(pos.y - yRange.first).at(pos.x - xRange.first) = 'S';
-    //     grid.at(sensor.beacon_.y - yRange.first).at(sensor.beacon_.x - xRange.first) = 'B';
-    //
-    //     std::for_each(visited.begin(), visited.end(), [](auto &r){ std::fill(r.begin(), r.end(), false); });
-    //     markNonBeacons(grid, visited, sensor.distanceToBeacon_, xRange, yRange, pos, pos);
-    // }
-    // printGrid(grid, std::cout, yRange.first);
-
-    // part 1 --
+    // part 1 --find number of places on line y=2000000 where a beacon cannot be
     const uint32_t targetY = 2000000;
     uint32_t count = 0;
     for (int64_t x = xRange.first; x <= xRange.second; x += 1) {
