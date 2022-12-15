@@ -57,24 +57,24 @@ inline uint8_t interp(uint8_t a, uint8_t b, float weightA = 1.0f) {
     return static_cast<uint8_t>(weightA * static_cast<float>(a) + (1.0f - weightA) * static_cast<float>(b));
 }
 
-void writeVertexToFrame(std::vector<uint8_t> &frame, Vertex const &v, uint32_t width, std::array<uint8_t, 4> color,
+void writeVertexToFrame(std::vector<uint8_t> &frame, Vertex const &v, uint32_t width, std::array<uint8_t, 3> color,
                         bool blend = false, float blendAmt = 1.0f) {
     const uint32_t offset = 4 * (v.first * width + v.second);
 
     if (blend) {
         color = {interp(color.at(0), frame.at(offset + 0), blendAmt),
                  interp(color.at(1), frame.at(offset + 1), blendAmt),
-                 interp(color.at(2), frame.at(offset + 2), blendAmt), color.at(3)};
+                 interp(color.at(2), frame.at(offset + 2), blendAmt)};
     }
 
     frame.at(offset + 0) = color.at(0);
     frame.at(offset + 1) = color.at(1);
     frame.at(offset + 2) = color.at(2);
-    frame.at(offset + 3) = color.at(3);
+    frame.at(offset + 3) = 255;
 }
 
 void writePath(std::vector<uint8_t> &frame, uint32_t width, Grid<Vertex> const &path, Vertex const &src,
-               Vertex const &dst, std::array<uint8_t, 4> color) {
+               Vertex const &dst, std::array<uint8_t, 3> color) {
 
     Vertex v = src;
     while (v != dst) {
@@ -84,7 +84,7 @@ void writePath(std::vector<uint8_t> &frame, uint32_t width, Grid<Vertex> const &
 }
 
 void highlightVisited(std::vector<uint8_t> &frame, Grid<bool> const &visited, Vertex const &src,
-                      std::array<uint8_t, 4> color) {
+                      std::array<uint8_t, 3> color) {
     for (size_t i = 0; i < visited.size(); i += 1) {
         for (size_t j = 0; j < visited.at(i).size(); j += 1) {
             if (src.first == i && src.second == j) continue;
@@ -105,8 +105,8 @@ Vertex bfs(Grid<Elevation> const &grid, Vertex src, Vertex dst, Grid<uint32_t> &
     if (vis) {
         frame = std::vector<uint8_t>(ROWS * COLS * 4, 0);
         writeHeightsToFrame(grid, *frame);
-        writeVertexToFrame(*frame, src, COLS, {0, 0, 255, 255});
-        writeVertexToFrame(*frame, dst, COLS, {76, 153, 0, 255});
+        writeVertexToFrame(*frame, src, COLS, {0, 0, 255});
+        writeVertexToFrame(*frame, dst, COLS, {76, 153, 0});
     }
 
     std::deque<Vertex> queue;
@@ -125,10 +125,10 @@ Vertex bfs(Grid<Elevation> const &grid, Vertex src, Vertex dst, Grid<uint32_t> &
 
         if (vis) {
             writeHeightsToFrame(grid, *frame);
-            writeVertexToFrame(*frame, src, COLS, {0, 0, 255, 255});
-            writeVertexToFrame(*frame, dst, COLS, {76, 153, 0, 255});
-            highlightVisited(*frame, visited, src, {255, 0, 0, 128});
-            writePath(*frame, COLS, predecessors, v, src, {255, 0, 0, 255});
+            writeVertexToFrame(*frame, src, COLS, {0, 0, 255});
+            writeVertexToFrame(*frame, dst, COLS, {76, 153, 0});
+            highlightVisited(*frame, visited, src, {255, 0, 0});
+            writePath(*frame, COLS, predecessors, v, src, {255, 0, 0});
             writeFrame(*vis, *frame, COLS, ROWS);
         }
 
@@ -201,7 +201,7 @@ int main() {
     std::optional<std::vector<uint8_t>> frame;
     if constexpr (VISUALIZATION) {
         GifBegin(&(*vis), "figs/dec12/part2.gif", COLS, ROWS, 1);
-        frame = std::vector<uint8_t>(ROWS*COLS*4);
+        frame = std::vector<uint8_t>(ROWS*COLS*4, 0);
     }
     uint32_t minDistance = std::numeric_limits<uint32_t>::max();
     for (size_t i = 0; i < ROWS; i += 1) {
@@ -217,9 +217,9 @@ int main() {
 
             if (vis) {
                 writeHeightsToFrame(grid, *frame);
-                writeVertexToFrame(*frame, src, COLS, {0, 0, 255, 255});
-                writeVertexToFrame(*frame, dst, COLS, {76, 153, 0, 255});
-                writePath(*frame, COLS, predecessors, end, src, {255, 0, 0, 255});
+                writeVertexToFrame(*frame, src, COLS, {0, 0, 255});
+                writeVertexToFrame(*frame, dst, COLS, {76, 153, 0});
+                writePath(*frame, COLS, predecessors, end, src, {255, 0, 0});
                 writeFrame(*vis, *frame, COLS, ROWS);
             }
         }
