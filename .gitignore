@@ -2,3 +2,10 @@ bin/*
 2020/bin/*
 2022/bin/*
 .vscode
+
+# RUST
+debug/
+target/
+Cargo.lock
+**/*.rs.bk
+*.pdb
