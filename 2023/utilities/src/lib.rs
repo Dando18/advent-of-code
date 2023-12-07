@@ -10,4 +10,11 @@ pub mod io {
             .map(String::from)
             .collect()
     }
+
+    pub fn read_char_grid(path: &str) -> Vec<Vec<char>> {
+        read_file_lines(path)
+            .iter()
+            .map(|l| l.chars().collect())
+            .collect()
+    }
 }
