@@ -21,7 +21,7 @@ fn main() {
     }
 
     { /* Example 2 */
-        print!("Example 1 ");
+        print!("Example 2 ");
         let timer = std::time::Instant::now();
         let ans = part2::solution("example-input-3.txt");
         println!("({:?}):\t{}", timer.elapsed(), ans);
